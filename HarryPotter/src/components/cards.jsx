@@ -4,13 +4,13 @@ import "../styles/Cards.css";
 
 const Cards = () => {
   const [items, setItems] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // State for search input
+  const [searchTerm, setSearchTerm] = useState(""); 
 
   useEffect(() => {
     axios
       .get("https://hp-api.onrender.com/api/characters")
       .then((res) => {
-        const filteredItems = (res.data || []).filter((character) => character.image); // Remove characters without images
+        const filteredItems = (res.data || []).filter((character) => character.image); 
         setItems(filteredItems);
       })
       .catch((err) => {
@@ -18,7 +18,7 @@ const Cards = () => {
       });
   }, []);
 
-  // Filter items based on search input
+  
   const filteredItems = items.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -29,7 +29,7 @@ const Cards = () => {
       <div className="items-container">
         {filteredItems.length > 0 ? (
           filteredItems.map(({ name, image, id, alternate_names }) => {
-            const uniqueKey = id || name.replace(/\s+/g, "-"); // Ensure unique key
+            const uniqueKey = id || name.replace(/\s+/g, "-"); 
 
             return (
               <section key={uniqueKey} className="box">

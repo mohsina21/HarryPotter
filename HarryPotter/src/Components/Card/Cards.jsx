@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/Cards.css";
+import "./Cards.css";
 
 const Cards = () => {
   const [items, setItems] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios
       .get("https://hp-api.onrender.com/api/characters")
       .then((res) => {
-        const filteredItems = (res.data || []).filter((character) => character.image); 
+        const filteredItems = (res.data || []).filter((character) => character.image);
         setItems(filteredItems);
       })
       .catch((err) => {
@@ -18,7 +18,6 @@ const Cards = () => {
       });
   }, []);
 
-  
   const filteredItems = items.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -29,7 +28,7 @@ const Cards = () => {
       <div className="items-container">
         {filteredItems.length > 0 ? (
           filteredItems.map(({ name, image, id, alternate_names }) => {
-            const uniqueKey = id || name.replace(/\s+/g, "-"); 
+            const uniqueKey = id || name.replace(/\s+/g, "-");
 
             return (
               <section key={uniqueKey} className="box">
@@ -53,7 +52,6 @@ const Cards = () => {
   );
 };
 
-// SearchBar Component
 const SearchBar = ({ searchTerm, setSearchTerm }) => {
   return (
     <div className="search-bar">

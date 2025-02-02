@@ -1,37 +1,62 @@
 /* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap');
+
 .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #121212;
-    color: white;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  button {
-    background-color: #ff9800;
-    color: #121212;
-    font-size: 1.2rem;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background-color: #e68900;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0a0a0a; 
+  color: #d4af37; 
+  text-align: center;
+  font-family: 'Cinzel Decorative', serif; 
+}
+
+/* Title */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  font-family: 'Cinzel Decorative', serif;
+  text-transform: uppercase;
+  border-bottom: 2px solid #a67c00; 
+  padding-bottom: 5px;
+}
+
+/* Subtitle */
+p {
+  font-size: 1.2rem;
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  color: #b8860b; 
+  margin-bottom: 20px;
+}
+
+/* Button */
+button {
+  background: #3a2c12; 
+  color: #d4af37;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border: 2px solid #a67c00;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Cinzel', serif;
+}
+
+button:hover {
+  background: #5c4420; 
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+/* Additional Styling */
+.home-container::after {
+  content: '⚡';
+  font-size: 3rem;
+  opacity: 0.1;
+  position: absolute;
+  bottom: 20px;
+}

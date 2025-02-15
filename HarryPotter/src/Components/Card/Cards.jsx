@@ -27,7 +27,7 @@ const Cards = () => {
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div className="items-container">
         {filteredItems.length > 0 ? (
-          filteredItems.map(({ name, image, id, alternate_names }) => {
+          filteredItems.map(({ name, image, id, alternate_names, house, actor, ancestry, wand }) => {
             const uniqueKey = id || name.replace(/\s+/g, "-");
 
             return (
@@ -38,6 +38,26 @@ const Cards = () => {
                   {alternate_names.length > 0 && (
                     <p className="alternate-names">
                       <strong>Also known as:</strong> {alternate_names.join(", ")}
+                    </p>
+                  )}
+                  {house && (
+                    <p className="house">
+                      <strong>House:</strong> {house}
+                    </p>
+                  )}
+                  {actor && (
+                    <p className="actor">
+                      <strong>Actor:</strong> {actor}
+                    </p>
+                  )}
+                  {ancestry && (
+                    <p className="ancestry">
+                      <strong>Ancestry:</strong> {ancestry}
+                    </p>
+                  )}
+                  {wand && wand.wood && (
+                    <p className="wand">
+                      <strong>Wand:</strong> {wand.wood} wood, {wand.core} core, {wand.length || "unknown"} inches
                     </p>
                   )}
                 </section>

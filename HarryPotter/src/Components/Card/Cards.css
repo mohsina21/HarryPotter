@@ -1,4 +1,3 @@
-/* Cards.css */
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap');
 
 /* Dark Background for Entire Page */
@@ -11,16 +10,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 /* Search Bar */
 .search-bar {
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 10px;
+  width: 90%;
 }
 
 .search-bar input {
-  width: 50%;
+  width: 100%;
+  max-width: 500px;
   padding: 10px;
   font-size: 1rem;
   border: 2px solid #a67c00;
@@ -36,13 +38,14 @@ body {
   border-color: #ffd700;
 }
 
+/* Container for Items */
 .items-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 50px; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; 
   padding: 20px;
   justify-content: center;
-  width: 90%;
+  width: 95%;
   max-width: 1200px;
 }
 
@@ -54,7 +57,8 @@ body {
   box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.2); 
   text-align: center;
   transition: transform 0.3s ease-in-out;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   min-height: 480px; 
   display: flex;
   flex-direction: column;
@@ -68,7 +72,8 @@ body {
 /* Character Image */
 .character-image {
   width: 100%;
-  height: 280px; 
+  height: auto;
+  max-height: 280px; 
   object-fit: contain; 
   border-radius: 8px;
   margin-bottom: 15px;
@@ -85,8 +90,9 @@ body {
   align-items: center;
 }
 
+/* Character Name */
 .character-name {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #ffd700; 
   text-align: center;
@@ -118,8 +124,41 @@ body {
   font-family: 'MedievalSharp', cursive;
 }
 
-@media (max-width: 400px) {
+/* Responsive Fixes for Small Screens */
+@media (max-width: 600px) {
   .items-container {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Single column */
+  }
+  
+  .box {
+    width: 90%;
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .character-name {
+    font-size: 1.2rem;
+  }
+
+  .search-bar {
+    margin: 10px;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .character-name {
+    font-size: 1.1rem;
+  }
+
+  .alternate-names {
+    font-size: 0.9rem;
+  }
+
+  .loading-text {
+    font-size: 1rem;
   }
 }
